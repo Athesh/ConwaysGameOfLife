@@ -1,0 +1,6 @@
+E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\ConwaysGameOfLife.exe.config
+E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\ConwaysGameOfLife.exe
+E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\ConwaysGameOfLife.pdb
+E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.csprojResolveAssemblyReference.cache
+E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.exe
+E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.pdb

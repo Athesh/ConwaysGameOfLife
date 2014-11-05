@@ -9,6 +9,7 @@ namespace ConwaysGameOfLife {
         int x_;
         int y_;
 
+        //kostruktor pro Coordinate
         public Coordinate(int xx, int yy) {
             x_ = xx;
             y_ = yy;

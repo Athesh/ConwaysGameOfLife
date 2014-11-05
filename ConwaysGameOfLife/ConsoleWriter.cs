@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife {
     class ConsoleWriter {
-        public void Draw(Generation generation) {
+        public void Draw(Generation generation) { //zobrazovaci metoda pro konzoli
             for (int row = 0; row < generation.Height; row++) {
                 for (int col = 0; col < generation.Width; col++) {
                     Coordinate coor = new Coordinate(col, row);

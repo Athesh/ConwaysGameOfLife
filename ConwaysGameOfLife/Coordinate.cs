@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife {
-    class Coordinate {
+    public class Coordinate {
         int x_;
         int y_;
 

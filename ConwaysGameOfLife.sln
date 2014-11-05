@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysGameOfLife", "ConwaysGameOfLife\ConwaysGameOfLife.csproj", "{9D087857-56FE-4703-B724-311B685C4F63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysGameOfLifeTests", "ConwaysGameOfLifeTests\ConwaysGameOfLifeTests.csproj", "{FD0E2FA3-3DD2-4FF7-A629-37A6724A9F84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{9D087857-56FE-4703-B724-311B685C4F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D087857-56FE-4703-B724-311B685C4F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D087857-56FE-4703-B724-311B685C4F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD0E2FA3-3DD2-4FF7-A629-37A6724A9F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0E2FA3-3DD2-4FF7-A629-37A6724A9F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0E2FA3-3DD2-4FF7-A629-37A6724A9F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0E2FA3-3DD2-4FF7-A629-37A6724A9F84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

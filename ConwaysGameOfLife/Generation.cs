@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife {
-    class Generation {
+    public class Generation {
         bool[,] gameGrid_;
         int width_;
         int height_;

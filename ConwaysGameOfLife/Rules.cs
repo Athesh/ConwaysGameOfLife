@@ -49,5 +49,14 @@ namespace ConwaysGameOfLife {
             return count;
         }
 
+        public bool IsAliveInNextGeneration(bool isAliveNow, int countNeighborsAlive) {
+            if (isAliveNow == false && countNeighborsAlive == 3)
+                return true;
+            if (isAliveNow == true && (countNeighborsAlive == 2 || countNeighborsAlive == 3))
+                return true;
+            return false;
+        }
+
+
     }
 }

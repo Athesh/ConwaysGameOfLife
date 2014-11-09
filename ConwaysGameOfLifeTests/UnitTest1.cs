@@ -39,6 +39,7 @@ namespace ConwaysGameOfLifeTests {
             Coordinate c8 = new Coordinate(1, 0); //test pro 8
             Coordinate c9 = new Coordinate(2, 0); //test pro 9
             Coordinate c4 = new Coordinate(0, 1); //test pro 4
+            Coordinate c5 = new Coordinate(1, 1); //test pro 5
             Coordinate c6 = new Coordinate(2, 1); //test pro 6
             Coordinate c1 = new Coordinate(0, 2); //test pro 1
             Coordinate c2 = new Coordinate(1, 2); //test pro 2
@@ -47,11 +48,37 @@ namespace ConwaysGameOfLifeTests {
             Assert.AreEqual(3, r.CountNeighborsAlive(c8, g));
             Assert.AreEqual(3, r.CountNeighborsAlive(c9, g));
             Assert.AreEqual(3, r.CountNeighborsAlive(c4, g));
+            Assert.AreEqual(5, r.CountNeighborsAlive(c5, g));
             Assert.AreEqual(3, r.CountNeighborsAlive(c6, g));
             Assert.AreEqual(2, r.CountNeighborsAlive(c1, g));
             Assert.AreEqual(5, r.CountNeighborsAlive(c2, g));
-            Assert.AreEqual(2, r.CountNeighborsAlive(c3, g));
-            
+            Assert.AreEqual(2, r.CountNeighborsAlive(c3, g));           
+        }
+        [TestMethod]
+        public void IsAliveInNextGeneration() {
+            bool[,] arr = new bool[,] { { false, true, true }, { true, true, false }, { false, true, true } };
+            Generation g = new Generation(arr);
+            Rules r = new Rules();
+
+            Coordinate c7 = new Coordinate(0, 0); //test pro 7
+            Coordinate c8 = new Coordinate(1, 0); //test pro 8
+            Coordinate c9 = new Coordinate(2, 0); //test pro 9
+            Coordinate c4 = new Coordinate(0, 1); //test pro 4
+            Coordinate c5 = new Coordinate(1, 1); //test pro 5
+            Coordinate c6 = new Coordinate(2, 1); //test pro 6
+            Coordinate c1 = new Coordinate(0, 2); //test pro 1
+            Coordinate c2 = new Coordinate(1, 2); //test pro 2
+            Coordinate c3 = new Coordinate(2, 2); //test pro 3
+            Assert.IsTrue(r.IsAliveInNextGeneration(r.IsInGridAndAlive(c7, g), r.CountNeighborsAlive(c7, g)));
+            Assert.IsTrue(r.IsAliveInNextGeneration(r.IsInGridAndAlive(c8, g), r.CountNeighborsAlive(c8, g)));
+            Assert.IsTrue(r.IsAliveInNextGeneration(r.IsInGridAndAlive(c9, g), r.CountNeighborsAlive(c9, g)));
+            Assert.IsTrue(r.IsAliveInNextGeneration(r.IsInGridAndAlive(c4, g), r.CountNeighborsAlive(c4, g)));
+            Assert.IsFalse(r.IsAliveInNextGeneration(r.IsInGridAndAlive(c5, g), r.CountNeighborsAlive(c5, g)));
+            Assert.IsTrue(r.IsAliveInNextGeneration(r.IsInGridAndAlive(c6, g), r.CountNeighborsAlive(c6, g)));
+            Assert.IsTrue(r.IsAliveInNextGeneration(r.IsInGridAndAlive(c1, g), r.CountNeighborsAlive(c1, g)));
+            Assert.IsFalse(r.IsAliveInNextGeneration(r.IsInGridAndAlive(c2, g), r.CountNeighborsAlive(c2, g)));
+            Assert.IsTrue(r.IsAliveInNextGeneration(r.IsInGridAndAlive(c3, g), r.CountNeighborsAlive(c3, g)));
+
         }
     }
 }

@@ -80,5 +80,38 @@ namespace ConwaysGameOfLifeTests {
             Assert.IsTrue(r.IsAliveInNextGeneration(r.IsInGridAndAlive(c3, g), r.CountNeighborsAlive(c3, g)));
 
         }
+        [TestMethod]
+        public void NextGen() {
+            bool[,] arr = new bool[,] { { false, true, true }, { true, true, false }, { false, true, true } };
+            Generation g = new Generation(arr);
+            Rules r = new Rules();
+
+            Coordinate c7 = new Coordinate(0, 0); //test pro 7
+            Coordinate c8 = new Coordinate(1, 0); //test pro 8
+            Coordinate c9 = new Coordinate(2, 0); //test pro 9
+            Coordinate c4 = new Coordinate(0, 1); //test pro 4
+            Coordinate c5 = new Coordinate(1, 1); //test pro 5
+            Coordinate c6 = new Coordinate(2, 1); //test pro 6
+            Coordinate c1 = new Coordinate(0, 2); //test pro 1
+            Coordinate c2 = new Coordinate(1, 2); //test pro 2
+            Coordinate c3 = new Coordinate(2, 2); //test pro 3
+
+            Assert.IsFalse(r.IsInGridAndAlive(c5, r.NextGen(g)));
+            Assert.IsFalse(r.IsInGridAndAlive(c2, r.NextGen(g)));
+            Assert.IsTrue(r.IsInGridAndAlive(c1, r.NextGen(g)));
+            Assert.IsTrue(r.IsInGridAndAlive(c3, r.NextGen(g)));
+            Assert.IsTrue(r.IsInGridAndAlive(c4, r.NextGen(g)));
+            Assert.IsTrue(r.IsInGridAndAlive(c6, r.NextGen(g)));
+            Assert.IsTrue(r.IsInGridAndAlive(c7, r.NextGen(g)));
+            Assert.IsTrue(r.IsInGridAndAlive(c8, r.NextGen(g)));
+            Assert.IsTrue(r.IsInGridAndAlive(c9, r.NextGen(g)));
+        }
+        [TestMethod]
+        public void Equals() {
+            bool[,] arr = new bool[,] { { false, true, true }, { true, true, false }, { false, true, true } };
+            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\Library\Test1.txt");
+            Generation g = loader.Load();
+            Assert.IsTrue(arr.Equals(g));
+        }
     }
 }

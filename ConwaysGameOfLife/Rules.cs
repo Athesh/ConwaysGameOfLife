@@ -6,8 +6,22 @@ using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife {
     public class Rules {
-        public Generation NextGen(Generation generation) {
-            return null; //TODO: Do the shit.
+        public Generation NextGen(Generation generation) {  //Výpočet nové generace pomocí staré
+            bool[,] arr = new bool[generation.Width, generation.Height];
+
+            for (int y = 0; y < generation.Height; y++) {
+                for (int x = 0; x < generation.Width; x++) {
+                    Coordinate c = new Coordinate(x, y);
+                    if (IsAliveInNextGeneration(IsInGridAndAlive(c, generation), CountNeighborsAlive(c, generation)))
+                        arr[x, y] = true;
+                    else
+                        arr[x, y] = false;
+                }
+                
+            }
+
+            Generation nextGen = new Generation(arr);
+            return nextGen;
         }
 
         public bool IsInGridAndAlive(Coordinate coor, Generation generation) {

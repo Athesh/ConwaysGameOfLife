@@ -10,6 +10,11 @@ namespace ConwaysGameOfLife {
         int width_;
         int height_;
 
+        /*public bool Equals(Generation g) {
+            bool[,] arr = g;
+                                    TODO: prog. podle unit testu
+        }*/
+
         public Generation(bool[,] gameGrid) {
             width_ = gameGrid.GetLength(0);
             height_ = gameGrid.GetLength(1);

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ConwaysGameOfLife {
     class Program {
         static void Main(string[] args) {
-            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\Library\Stripes.txt");
+            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\Library\GliderGun.txt");
             //bool[,] arr = new bool[,] {{false, true, false},{false, true, false},{false, true, false}};
             //Generation g = new Generation(arr);
             Generation g = loader.Load();
@@ -15,7 +15,7 @@ namespace ConwaysGameOfLife {
             Rules r = new Rules();
             
 
-            int zzz = 500;
+            int zzz = 100;
 
             for (int i = 0; i < g.Height; i++)
 			{
@@ -27,7 +27,7 @@ namespace ConwaysGameOfLife {
             cc.Draw(g);
             System.Threading.Thread.Sleep(zzz);
 
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 200; i++) {
                 g1 = r.NextGen(g1);
                 cc.Draw(g1);
                 System.Threading.Thread.Sleep(zzz);

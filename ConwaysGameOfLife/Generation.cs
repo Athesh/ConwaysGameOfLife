@@ -10,11 +10,20 @@ namespace ConwaysGameOfLife {
         int width_;
         int height_;
 
-        /*public bool Equals(Generation g) {
-            bool[,] arr = g;
-                                    TODO: prog. podle unit testu
-        }*/
-
+        public bool Equals(Generation g) {
+            if (this.width_ != g.width_)
+                return false;
+            if (this.height_ != g.height_)
+                return false;
+            for (int row = 0; row < this.height_; row++) {
+                for (int col = 0; col < this.width_; col++) {
+                    if (this.gameGrid_[col, row] != g.gameGrid_[col, row]) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
         public Generation(bool[,] gameGrid) {
             width_ = gameGrid.GetLength(0);
             height_ = gameGrid.GetLength(1);

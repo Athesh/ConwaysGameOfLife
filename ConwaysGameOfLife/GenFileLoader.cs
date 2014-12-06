@@ -29,29 +29,23 @@ namespace ConwaysGameOfLife {
             int width;
             int height;
 
-            if (Int32.TryParse(lines[0], out width)) {
-            }
-            else {
+            if (!Int32.TryParse(lines[0], out width))
                 throw new BadFormatException("Spatne zadana sirka");
-            }
-            
-            if (Int32.TryParse(lines[1], out height)) {
-            }
-            else {
+
+            if (!Int32.TryParse(lines[1], out height))
                 throw new BadFormatException("Spatne zadana vyska");
-            }
 
             if (width <= 0 || height <= 0)
                 throw new BadFormatException("Vyska nebo sirka nemuze mit nulove rozmery nebo byt zaporna");
+
+            if (lines.Length - 2 != height)
+                    throw new BadFormatException("Nespravna delka sloupce");
 
             bool[,] arr = new bool[width, height];
 
             for (int i = 0; i < height; i++) {
                 if (lines[i + 2].Length != width) {
                     throw new BadFormatException("Nespravna delka radku cislo " + i);
-                }
-                else if (lines.Length - 2 != height) {
-                    throw new BadFormatException("Nespravna delka sloupce");
                 }
                 else {
                     ParseLine(arr, i, lines[i + 2]);

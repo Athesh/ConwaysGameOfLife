@@ -1,24 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife {
     class Program {
+
+        public static string GetLibraryDirectory() {
+            string exeFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            return exeFolder + @"\..\..\Library\";
+            }
+
         static void Main(string[] args) {
-            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\Library\GliderGun.txt");
+            string file = System.IO.File.ReadAllText(GetLibraryDirectory() + @"GliderGun.txt");
             //bool[,] arr = new bool[,] {{false, true, false},{false, true, false},{false, true, false}};
             //Generation g = new Generation(arr);
-            Generation g = loader.Load();
+            GenFileLoader loader = new GenFileLoader();
+            Generation g = loader.Load(file);
             Generation g1 = g;
             Rules r = new Rules();
             
-
             int zzz = 100;
 
-            for (int i = 0; i < g.Height; i++)
-			{
+            for (int i = 0; i < g.Height; i++){
                 Console.WriteLine("O");
 			}
             System.Threading.Thread.Sleep(10000);

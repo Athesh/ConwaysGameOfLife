@@ -1,10 +1,19 @@
 ﻿using System;
 using ConwaysGameOfLife;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace ConwaysGameOfLifeTests {
     [TestClass]
     public class UnitTest1 {
+
+        protected string GetTestDirectory() {
+            string exeFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            return exeFolder + @"\..\..\TestFiles\";
+        }
+        // + @"\..\..\Library\";
         [TestMethod]
         public void IsInGridAndAliveTest() {
             bool[,] arr = new bool[,] { { false, true, true }, { true, true, false }, { false, true, true } };
@@ -112,9 +121,16 @@ namespace ConwaysGameOfLifeTests {
 
         [TestMethod]
         public void LoaderTest() {
+            string file = @"
+3
+3
+_X_
+XXX
+X_X";
             bool[,] arr = new bool[,] { { false, true, true }, { true, true, false }, { false, true, true } };
-            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLifeTests\TestFiles\Test1.txt");
-            Generation loaded = loader.Load();
+            GenFileLoader loader = new GenFileLoader();
+            //GenFileLoader loader = new GenFileLoader(GetTestDirectory() + "Test1.txt");
+            Generation loaded = loader.Load(file);
             Generation expected = new Generation(arr);
 
             Assert.IsTrue(loaded.Equals(expected));
@@ -123,50 +139,91 @@ namespace ConwaysGameOfLifeTests {
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
         public void LoaderBadCharacterTest() {
-            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLifeTests\TestFiles\BadCharacter.txt");
-            Generation loaded = loader.Load();
+            string file = @"
+3
+3
+_C_
+___
+___";
+            GenFileLoader loader = new GenFileLoader();
+            Generation loaded = loader.Load(file);
         }
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
         public void LoaderBadRowTest() {
-            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLifeTests\TestFiles\BadRow.txt");
-            Generation loaded = loader.Load();
+            string file = @"
+3
+3
+__
+___
+___";
+            GenFileLoader loader = new GenFileLoader();
+            Generation loaded = loader.Load(file);
         }
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
         public void LoaderMissingRowTest() {
-            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLifeTests\TestFiles\MissingRow.txt");
-            Generation loaded = loader.Load();
+            string file = @"
+3
+3
+___
+___";
+            GenFileLoader loader = new GenFileLoader();
+            Generation loaded = loader.Load(file);
         }
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
         public void LoaderBadNumberTest() {
-            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLifeTests\TestFiles\BadNumber.txt");
-            Generation loaded = loader.Load();
+            string file = @"
+2.14
+3
+_X_
+___
+___";
+            GenFileLoader loader = new GenFileLoader();
+            Generation loaded = loader.Load(file);
         }
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
         public void LoaderNotANumberTest() {
-            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLifeTests\TestFiles\NotANumber.txt");
-            Generation loaded = loader.Load();
+            string file = @"
+Dude
+?
+_X_
+___
+___";
+            GenFileLoader loader = new GenFileLoader();
+            Generation loaded = loader.Load(file);
         }
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
         public void LoaderNumberZeroTest() {
-            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLifeTests\TestFiles\NumberZero.txt");
-            Generation loaded = loader.Load();
+            string file = @"
+0
+2
+_X_
+_X_
+___";
+            GenFileLoader loader = new GenFileLoader();
+            Generation loaded = loader.Load(file);
         }
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
         public void LoaderNegativeNumberTest() {
-            GenFileLoader loader = new GenFileLoader(@"E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLifeTests\TestFiles\NegativeNumber.txt");
-            Generation loaded = loader.Load();
+            string file = @"
+3
+-3
+_XX
+___
+___";
+            GenFileLoader loader = new GenFileLoader();
+            Generation loaded = loader.Load(file);
         }
     }
 }

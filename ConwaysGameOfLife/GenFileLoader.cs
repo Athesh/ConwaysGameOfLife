@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 namespace ConwaysGameOfLife {
     public class GenFileLoader {
 
-        string jmenoSouboru_;
-
-        public GenFileLoader(string jmenoSouboru) {
-            jmenoSouboru_ = jmenoSouboru;
-        }
+        public GenFileLoader() { }
 
         private void ParseLine (bool[,] arr, int rowNumber, string row){
             for (int i = 0; i < row.Length; i++) {
@@ -28,8 +24,8 @@ namespace ConwaysGameOfLife {
             }
         }
 
-        public Generation Load() {
-            string[] lines = System.IO.File.ReadAllLines(@jmenoSouboru_);
+        public Generation Load(string obsahSouboru) {
+            string[] lines = obsahSouboru.Split("\n\r".ToCharArray(), StringSplitOptions.RemoveEmptyEntries); //(@obsahSouboru);
             int width;
             int height;
 
@@ -45,20 +41,17 @@ namespace ConwaysGameOfLife {
                 throw new BadFormatException("Spatne zadana vyska");
             }
 
-            if (width == 0 || height == 0)
-                throw new BadFormatException("Vyska nebo sirka nemuze mit nulove rozmery");
-
-            if (width < 0 || height < 0)
-                throw new BadFormatException("Vyska nebo sirka nemuze byt zaporna");
+            if (width <= 0 || height <= 0)
+                throw new BadFormatException("Vyska nebo sirka nemuze mit nulove rozmery nebo byt zaporna");
 
             bool[,] arr = new bool[width, height];
 
             for (int i = 0; i < height; i++) {
-                if (i >= height) {
-                    throw new BadFormatException("Nespravna delka sloupce");
-                }
                 if (lines[i + 2].Length != width) {
                     throw new BadFormatException("Nespravna delka radku cislo " + i);
+                }
+                else if (lines.Length - 2 != height) {
+                    throw new BadFormatException("Nespravna delka sloupce");
                 }
                 else {
                     ParseLine(arr, i, lines[i + 2]);

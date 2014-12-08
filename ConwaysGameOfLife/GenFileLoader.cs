@@ -9,8 +9,8 @@ namespace ConwaysGameOfLife {
 
         public GenFileLoader() { }
 
-        private void ParseLine (bool[,] arr, int rowNumber, string row){
-            for (int i = 0; i < row.Length; i++) {
+        private void ParseLine (bool[,] arr, int rowNumber, string row){ //zpravocani konkretniho radku ve vybraném poli
+            for (int i = 0; i < row.Length; i++) {  //for cyklus pro načtení i-té řádky do pole
                 char cell = row.ElementAt(i); //prvek na dane pozici v retezci
                 if (cell == '_') {
                     arr[i, rowNumber] = false;
@@ -24,8 +24,8 @@ namespace ConwaysGameOfLife {
             }
         }
 
-        public Generation Load(string obsahSouboru) {
-            string[] lines = obsahSouboru.Split("\n\r".ToCharArray(), StringSplitOptions.RemoveEmptyEntries); //(@obsahSouboru);
+        public Generation Load(string obsahSouboru) {   //metoda pro načení obsahu souboru do programu
+            string[] lines = obsahSouboru.Split("\n\r".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             int width;
             int height;
 

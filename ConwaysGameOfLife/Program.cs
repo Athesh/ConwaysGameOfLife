@@ -16,13 +16,20 @@ namespace ConwaysGameOfLife {
             }
 
         static void Main(string[] args) {
-            string file = System.IO.File.ReadAllText(GetLibraryDirectory() + @"GliderGun.txt");
+            string file = System.IO.File.ReadAllText(GetLibraryDirectory() + @"Stripes.txt");
             //bool[,] arr = new bool[,] {{false, true, false},{false, true, false},{false, true, false}};
             //Generation g = new Generation(arr);
             GenFileLoader loader = new GenFileLoader();
             Generation g = loader.Load(file);
             Generation g1 = g;
-            Rules r = new Rules();
+
+            //ConsoleUI ui = new ConsoleUI();
+            GUI ui = new GUI();
+            GameEngine ge = new GameEngine(g, ui);
+
+            ui.Run(ge);
+
+            /*Rules r = new Rules();
             
             int zzz = 100;
 
@@ -41,8 +48,8 @@ namespace ConwaysGameOfLife {
                 System.Threading.Thread.Sleep(zzz);
             }
 
-
-            Console.ReadLine();
+            
+            Console.ReadLine();*/
         }
     }
 }

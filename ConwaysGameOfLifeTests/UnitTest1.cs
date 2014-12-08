@@ -8,12 +8,6 @@ using System.Reflection;
 namespace ConwaysGameOfLifeTests {
     [TestClass]
     public class UnitTest1 {
-
-        protected string GetTestDirectory() {
-            string exeFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            return exeFolder + @"\..\..\TestFiles\";
-        }
-        // + @"\..\..\Library\";
         [TestMethod]
         public void IsInGridAndAliveTest() {
             bool[,] arr = new bool[,] { { false, true, true }, { true, true, false }, { false, true, true } };
@@ -120,7 +114,7 @@ namespace ConwaysGameOfLifeTests {
         }
 
         [TestMethod]
-        public void LoaderTest() {
+        public void LoaderTest() {  //test funkčnosti načtení jednoduchého pole
             string file = @"
 3
 3
@@ -138,7 +132,7 @@ X_X";
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
-        public void LoaderBadCharacterTest() {
+        public void LoaderBadCharacterTest() {  //test pro špatný znak
             string file = @"
 3
 3
@@ -151,7 +145,7 @@ ___";
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
-        public void LoaderBadRowTest() {
+        public void LoaderBadRowTest() {    //test pro špatný řádek
             string file = @"
 3
 3
@@ -164,7 +158,7 @@ ___";
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
-        public void LoaderMissingRowTest() {
+        public void LoaderMissingRowTest() {    //test pro chybějící řádek
             string file = @"
 3
 3
@@ -176,7 +170,7 @@ ___";
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
-        public void LoaderBadNumberTest() {
+        public void LoaderBadNumberTest() {     //test pro číslo ve špatném formátu
             string file = @"
 2.14
 3
@@ -189,7 +183,7 @@ ___";
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
-        public void LoaderNotANumberTest() {
+        public void LoaderNotANumberTest() {    //test pro špatně zadané číslo
             string file = @"
 Dude
 ?
@@ -202,7 +196,7 @@ ___";
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
-        public void LoaderNumberZeroTest() {
+        public void LoaderNumberZeroTest() {    //test jestli velikost pole není nulová
             string file = @"
 0
 2
@@ -215,7 +209,7 @@ ___";
 
         [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
-        public void LoaderNegativeNumberTest() {
+        public void LoaderNegativeNumberTest() {    //test pro záporné číslo
             string file = @"
 3
 -3

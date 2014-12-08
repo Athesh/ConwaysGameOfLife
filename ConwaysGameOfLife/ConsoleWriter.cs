@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife {
     class ConsoleWriter {
-        public void Draw(Generation generation) { //zobrazovaci metoda pro konzoli
-            for (int row = 0; row < generation.Height; row++) {
-                for (int col = 0; col < generation.Width; col++) {
+        public void Draw(Generation generation) { //vykreslovaci metoda pro konzolové UI
+            for (int row = 0; row < generation.Height; row++) { //radek
+                for (int col = 0; col < generation.Width; col++) {  //sloupec
                     Coordinate coor = new Coordinate(col, row);
                     bool alive = generation.Alive(coor);
                     if (alive)

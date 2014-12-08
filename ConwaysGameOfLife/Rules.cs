@@ -24,7 +24,7 @@ namespace ConwaysGameOfLife {
             return nextGen;
         }
 
-        public bool IsInGridAndAlive(Coordinate coor, Generation generation) {
+        public bool IsInGridAndAlive(Coordinate coor, Generation generation) { //Zjištění jestli buňka není mimo hrací plochu a jestli žije
             if ((coor.X >= 0) && (coor.Y >= 0) && (coor.X < generation.Width) && (coor.Y < generation.Height)) {
                 return generation.Alive(coor);
             }
@@ -43,7 +43,7 @@ namespace ConwaysGameOfLife {
             Coordinate c2 = new Coordinate(coor.X, coor.Y + 1);
             Coordinate c3 = new Coordinate(coor.X + 1, coor.Y + 1);
 
-            int count = 0;
+            int count = 0;  //proměnná pro počet sousedů
             if (IsInGridAndAlive(c7, generation)) //test pro [x-1, y-1]
                     count++;
             if (IsInGridAndAlive(c8, generation)) //test pro [x, y-1]
@@ -63,7 +63,7 @@ namespace ConwaysGameOfLife {
             return count;
         }
 
-        public bool IsAliveInNextGeneration(bool isAliveNow, int countNeighborsAlive) {
+        public bool IsAliveInNextGeneration(bool isAliveNow, int countNeighborsAlive) { //Zjištění stavu buňky v další generaci na základě pravidel o sousedech
             if (isAliveNow == false && countNeighborsAlive == 3)
                 return true;
             if (isAliveNow == true && (countNeighborsAlive == 2 || countNeighborsAlive == 3))

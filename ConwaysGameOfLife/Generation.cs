@@ -10,12 +10,12 @@ namespace ConwaysGameOfLife {
         int width_;
         int height_;
 
-        public bool Equals(Generation g) {
-            if (this.width_ != g.width_)
+        public bool Equals(Generation g) { //metoda pro porovnání podobnosti dvou polí
+            if (this.width_ != g.width_)    //šířka
                 return false;
-            if (this.height_ != g.height_)
+            if (this.height_ != g.height_)  //výška
                 return false;
-            for (int row = 0; row < this.height_; row++) {
+            for (int row = 0; row < this.height_; row++) {  //cyklus pro porovnání jednotlivých prvků
                 for (int col = 0; col < this.width_; col++) {
                     if (this.gameGrid_[col, row] != g.gameGrid_[col, row]) {
                         return false;
@@ -24,21 +24,21 @@ namespace ConwaysGameOfLife {
             }
             return true;
         }
-        public Generation(bool[,] gameGrid) {
+        public Generation(bool[,] gameGrid) {   //konstruktor pro Generaci
             width_ = gameGrid.GetLength(0);
             height_ = gameGrid.GetLength(1);
             gameGrid_ = gameGrid;
         }
 
-        public bool Alive (Coordinate coor){
+        public bool Alive (Coordinate coor){    //metoda pro zjištění stavu buňky
             return gameGrid_[coor.X, coor.Y];
         }
 
-        public int Width {
+        public int Width {  //property pro šířku
             get { return width_; }
         }
 
-        public int Height {
+        public int Height { //property pro výšku
             get { return height_; }
         }
     }

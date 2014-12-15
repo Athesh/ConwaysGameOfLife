@@ -16,7 +16,7 @@ namespace ConwaysGameOfLife {
             }
 
         static void Main(string[] args) {
-            string file = System.IO.File.ReadAllText(GetLibraryDirectory() + @"Stripes.txt");
+            string file = System.IO.File.ReadAllText(GetLibraryDirectory() + @"GliderGun.txt");
             //bool[,] arr = new bool[,] {{false, true, false},{false, true, false},{false, true, false}};
             //Generation g = new Generation(arr);
             GenFileLoader loader = new GenFileLoader();

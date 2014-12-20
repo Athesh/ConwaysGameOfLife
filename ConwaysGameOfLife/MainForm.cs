@@ -23,24 +23,24 @@ namespace ConwaysGameOfLife {
             int squareSize = 10;
             Generation gen = engine_.CurrentGen;
             Pen myPen = new Pen(Color.Black);
-            //SolidBrush aliveBrush = new SolidBrush(Color.Black);
-            //SolidBrush deadBrush = new SolidBrush(Color.White);
-            //Rules r = new Rules();
-            gfx.FillRectangle(new SolidBrush(BackColor), new Rectangle(0, 0, Width, Height));
-            //gfx.DrawLine(myPen, X, Y, X1, Y1);
+            SolidBrush aliveCellBrush = new SolidBrush(Color.Black);
+            Rules r = new Rules();
 
-            for (int x = 0; x < gen.Height; x++) {
-                gfx.DrawLine(myPen, 0, x * 9, gen.Width * 9 - 9, x * 9);
+            for (int x = 0; x <= gen.Height; x++) { //vykreslování mřížky svisle
+                gfx.DrawLine(myPen, 0, x * 9, gen.Width * 9, x * 9);
             }
 
-            for (int y = 0; y < gen.Width; y++) {
-                gfx.DrawLine(myPen, y * 9, 0, y * 9, gen.Height * 9 - 9);
+            for (int y = 0; y <= gen.Width; y++) { //vykreslování mřížky vodorovně
+                gfx.DrawLine(myPen, y * 9, 0, y * 9, gen.Height * 9);
             }
 
-            //TODO Nakreslit bunky reprezentujici pole
-
-            /*SolidBrush blackBrush = new SolidBrush(Color.Black);
-            gfx.FillRectangle(blackBrush, randomNumber, randomNumber, 10, 10);*/
+            for (int i = 0; i < gen.Width; i++) { //reprezentace buňek pomocí čtverečků
+                for (int j = 0; j < gen.Height; j++) {
+                    Coordinate coor = new Coordinate(i, j);
+                    if (r.IsInGridAndAlive(coor, gen))
+                        gfx.FillRectangle(aliveCellBrush, i * 9, j * 9, squareSize, squareSize);
+                }
+            }
         }
 
         private void step_Click(object sender, EventArgs e) {

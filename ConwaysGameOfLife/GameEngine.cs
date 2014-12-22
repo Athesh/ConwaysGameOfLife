@@ -6,11 +6,11 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife {
-    public class GameEngine {
+    public class GameEngine {   ///Jádro hry, které interaguje mezi logikou a uživatelským rozhraním
         UserInterface UI_;
         Generation currentGen;
         Rules evolution = new Rules();
-        const int timeToSleep = 1000;
+        const int timeToSleep = 100;
         bool iftrue = true;
 
         public GameEngine (Generation g, UserInterface UI) {

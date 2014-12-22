@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife {
-    public class ConsoleUI : UserInterface{
+    public class ConsoleUI : UserInterface{ ///Konzolová část hry
         GameEngine engine_;
 
         public void Update() {  //metoda pro překreslení (v tomhle případě konzole)

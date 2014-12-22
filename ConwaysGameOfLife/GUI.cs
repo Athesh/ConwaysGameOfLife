@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ConwaysGameOfLife {
-    public class GUI : UserInterface{
+    public class GUI : UserInterface{   ///Grafické prostředí hry
 
         MainForm form_;
 

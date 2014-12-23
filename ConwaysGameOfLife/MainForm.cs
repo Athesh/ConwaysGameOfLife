@@ -14,6 +14,7 @@ namespace ConwaysGameOfLife {
         public MainForm(GameEngine engine) {
             DoubleBuffered = true;  //zapnutí flagu pro dvojitě bufferovaný form
             ResizeRedraw = true;    //překreslení formuláře při jeho změně velikosti
+            this.MouseClick += new MouseEventHandler(FormMouseClick);   //přidání nového handleru pro mouse click
             this.BackColor = Color.FromArgb(49, 47, 49);
             engine_ = engine;
             InitializeComponent();
@@ -21,8 +22,10 @@ namespace ConwaysGameOfLife {
 
         private const int RIGHT_BUTTON_MARGIN = 100;
 
-        public int MinGridScale(int formHeight, int formWidth) {    //počítání velikosti mřížky podle velikosti formuláře
+        public int MinGridScale() {    //počítání velikosti mřížky podle velikosti formuláře
             Generation gen = engine_.CurrentGen;
+            int formHeight = this.ClientSize.Height - 1; //fix mizení dolní čáry při změně velikosti formuláře
+            int formWidth = this.ClientSize.Width - RIGHT_BUTTON_MARGIN;
             int a = formWidth / gen.Width;
             int b = formHeight / gen.Height;
             return Math.Min(a, b);
@@ -30,10 +33,7 @@ namespace ConwaysGameOfLife {
 
         protected override void OnPaint(PaintEventArgs e) { //vykreslování hry samotné
             Graphics gfx = e.Graphics;
-            int height = this.ClientSize.Height - 1; //fix mizení dolní čáry při změně velikosti formuláře
-            int width = this.ClientSize.Width - RIGHT_BUTTON_MARGIN;
-
-            int squareSize = MinGridScale(height, width);
+            int squareSize = MinGridScale();
             Generation gen = engine_.CurrentGen;
             Pen myPen = new Pen(Color.Gray);
             SolidBrush aliveCellBrush = new SolidBrush(Color.White);
@@ -57,6 +57,21 @@ namespace ConwaysGameOfLife {
                         gfx.FillRectangle(deadCellBrush, (i * squareSize) + 1, (j * squareSize) + 1, squareSize - 1, squareSize - 1);
                 }
             }
+        }
+
+        private void FormMouseClick(object sender, MouseEventArgs e) {
+            Generation gen = engine_.CurrentGen;
+            int cellSize = MinGridScale();
+            int x = e.X / cellSize;
+            int y = e.Y / cellSize;
+            Coordinate coor = new Coordinate(x, y);
+
+            if ((x < gen.Width) && (x >= 0)) {
+                if ((y < gen.Height) && (y >= 0)) { //kliknutí uživatele na mřížku
+                    engine_.InvertAt(coor);
+                }
+            }
+            //Console.WriteLine("X: " + e.X + "\n" + "Y: " + e.Y);
         }
 
         private void step_Click(object sender, EventArgs e) {

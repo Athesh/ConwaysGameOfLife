@@ -41,5 +41,9 @@ namespace ConwaysGameOfLife {
         public int Height { //property pro výšku
             get { return height_; }
         }
+
+        public void Invert(Coordinate coor) {
+            gameGrid_[coor.X, coor.Y] = !gameGrid_[coor.X, coor.Y];
+        }
     }
 }

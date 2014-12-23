@@ -47,5 +47,10 @@ namespace ConwaysGameOfLife {
             iftrue = false;
         }
 
+        public void InvertAt(Coordinate coor) {
+            currentGen.Invert(coor);
+            UI_.Update();
+        }
+
     }
 }

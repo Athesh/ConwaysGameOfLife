@@ -30,6 +30,7 @@
             // 
             // start
             // 
+            this.start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.start.Location = new System.Drawing.Point(523, 12);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(75, 23);
@@ -40,6 +41,7 @@
             // 
             // step
             // 
+            this.step.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.step.Location = new System.Drawing.Point(523, 42);
             this.step.Name = "step";
             this.step.Size = new System.Drawing.Size(75, 23);
@@ -50,6 +52,7 @@
             // 
             // stop
             // 
+            this.stop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.stop.Location = new System.Drawing.Point(523, 72);
             this.stop.Name = "stop";
             this.stop.Size = new System.Drawing.Size(75, 23);

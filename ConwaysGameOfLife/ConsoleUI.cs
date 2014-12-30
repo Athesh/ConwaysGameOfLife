@@ -30,6 +30,14 @@ namespace ConwaysGameOfLife {
                 if (command == "end") {
                     break;
                 }
+                if (command == "convert") {
+                    Console.WriteLine("X: ");
+                    int x = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Y: ");
+                    int y = Convert.ToInt32(Console.ReadLine());
+                    Coordinate coor = new Coordinate (x, y);
+                    engine_.InvertAt(coor);
+                }
             }
         }
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ConwaysGameOfLife {
     public partial class MainForm : Form {  ///hlavní formulář pro vykreslování hry
@@ -84,6 +85,15 @@ namespace ConwaysGameOfLife {
 
         private void stop_Click(object sender, EventArgs e) {
             engine_.Stop();
+        }
+
+        private void Load_Click(object sender, EventArgs e) {
+        }
+
+        private void Save_Click(object sender, EventArgs e) {
+            Generation g = engine_.CurrentGen;
+            GenFileSaver saver = new GenFileSaver();
+            saver.Save(g);
         }
     }
 }

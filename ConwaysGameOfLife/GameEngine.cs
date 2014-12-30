@@ -10,7 +10,7 @@ namespace ConwaysGameOfLife {
         UserInterface UI_;
         Generation currentGen;
         Rules evolution = new Rules();
-        const int timeToSleep = 100;
+        const int timeToSleep = 10;
         bool iftrue = true;
 
         public GameEngine (Generation g, UserInterface UI) {

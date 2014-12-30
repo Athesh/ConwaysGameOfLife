@@ -65,6 +65,7 @@
     <Compile Include="GameEngine.cs" />
     <Compile Include="Generation.cs" />
     <Compile Include="GenFileLoader.cs" />
+    <Compile Include="GenFileSaver.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

@@ -24,7 +24,7 @@ namespace ConwaysGameOfLife {
             }
         }
 
-        public Generation Load(string obsahSouboru) {   //metoda pro načení obsahu souboru do programu
+        public Generation Load(string obsahSouboru) {   //metoda pro načtení obsahu souboru do programu
             string[] lines = obsahSouboru.Split("\n\r".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             int width;
             int height;

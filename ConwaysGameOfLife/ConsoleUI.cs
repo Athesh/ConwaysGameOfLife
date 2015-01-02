@@ -31,13 +31,20 @@ namespace ConwaysGameOfLife {
                     break;
                 }
                 if (command == "convert") {
-                    Console.WriteLine("X: ");
+                    Console.Write("X: ");
                     int x = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Y: ");
+                    Console.Write("Y: ");
                     int y = Convert.ToInt32(Console.ReadLine());
                     Coordinate coor = new Coordinate (x, y);
                     engine_.InvertAt(coor);
                 }
+                if (command == "save") {
+                    Console.Write("Path: ");
+                    string path = Convert.ToString(Console.ReadLine());
+                    GenFileSaver saver = new GenFileSaver();
+                    saver.Save(engine_.CurrentGen, path);
+                }
+
             }
         }
 

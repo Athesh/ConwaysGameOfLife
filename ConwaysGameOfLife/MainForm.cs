@@ -93,7 +93,7 @@ namespace ConwaysGameOfLife {
         private void Save_Click(object sender, EventArgs e) {
             Generation g = engine_.CurrentGen;
             GenFileSaver saver = new GenFileSaver();
-            saver.Save(g);
+            saver.Save(g, "Testing.txt");
         }
     }
 }

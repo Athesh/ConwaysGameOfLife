@@ -11,9 +11,17 @@ namespace ConwaysGameOfLife {
 
         public GenFileSaver() { }
 
-        public void Save (Generation gen) {
+        /*public char[,] SerializeGeneration(Generation gen) {
+            //TODO
+        }
+
+        public void WriteArrayToFile(char[,] arr, string fileName){
+            //TODO
+        }*/
+
+        public void Save (Generation gen, string fileName) {
             string exeFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            TextWriter tw = new StreamWriter(exeFolder + @"\..\..\Library\Testing.txt");
+            TextWriter tw = new StreamWriter(exeFolder + @"\..\..\Library\" + fileName);
             Rules r = new Rules();
 
             int width = gen.Width;

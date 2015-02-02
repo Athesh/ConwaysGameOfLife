@@ -131,6 +131,26 @@ X_X";
         }
 
         [TestMethod]
+        public void SaverTest() {  //test funkčnosti uložení jednoduchého pole
+            string file = @"
+3
+3
+_X_
+XXX
+X_X";
+            char[,] filez = new char[,] { { '3', '3', '_', 'X', 'X' }, { ' ', ' ', 'X', 'X', '_' }, { ' ', ' ', '_', 'X', 'X' } };
+            bool[,] arr = new bool[,] { { false, true, true }, { true, true, false }, { false, true, true } };
+            GenFileLoader loader = new GenFileLoader();
+            GenFileSaver saver = new GenFileSaver();
+
+            Generation loaded = loader.Load(file.ToString());
+            Generation expected = new Generation(arr);
+
+            Assert.AreEqual(file, saver.SerializeGeneration(loaded).ToString());
+            //Assert.IsTrue(saver.SerializeGeneration(loaded).Equals(filez));
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(BadFormatException))]
         public void LoaderBadCharacterTest() {  //test pro špatný znak
             string file = @"

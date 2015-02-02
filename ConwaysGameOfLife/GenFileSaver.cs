@@ -11,7 +11,7 @@ namespace ConwaysGameOfLife {
 
         public GenFileSaver() { }
 
-        public char[,] SerializeGeneration(Generation gen) {
+        public char[,] SerializeGeneration(Generation gen) {    //metoda pro zpracování generace do pole charů reprezentující bool hodnoty
             char[,] arr = new char[gen.Width, gen.Height];
             Rules r = new Rules();
             for (int y = 0; y < gen.Height; y++) {
@@ -29,7 +29,7 @@ namespace ConwaysGameOfLife {
             return arr;
         }
 
-        public void WriteArrayToFile(char[,] arr, string fileName, Generation gen){
+        public void WriteArrayToFile(char[,] arr, string fileName, Generation gen){ //metoda pro zapsání pole charů do souboru
             string exeFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             TextWriter tw = new StreamWriter(exeFolder + @"\..\..\Library\" + fileName);
             tw.WriteLine(gen.Width);
@@ -43,7 +43,7 @@ namespace ConwaysGameOfLife {
             tw.Close();
         }
 
-        public void Save (Generation gen, string fileName) {
+        public void Save (Generation gen, string fileName) {    //metoda pro ukládání (volá ostatní potřebné metody pro uložení)
             WriteArrayToFile(SerializeGeneration(gen), fileName, gen);
         }
     }

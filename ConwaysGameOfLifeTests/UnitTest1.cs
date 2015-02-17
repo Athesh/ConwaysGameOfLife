@@ -132,22 +132,21 @@ X_X";
 
         [TestMethod]
         public void SaverTest() {  //test funkčnosti uložení jednoduchého pole
-            string file = @"
-3
+            string expected = @"3
 3
 _X_
 XXX
-X_X";
-            char[,] filez = new char[,] { { '3', '3', '_', 'X', 'X' }, { ' ', ' ', 'X', 'X', '_' }, { ' ', ' ', '_', 'X', 'X' } };
-            bool[,] arr = new bool[,] { { false, true, true }, { true, true, false }, { false, true, true } };
+X_X
+";
             GenFileLoader loader = new GenFileLoader();
             GenFileSaver saver = new GenFileSaver();
 
-            Generation loaded = loader.Load(file.ToString());
-            Generation expected = new Generation(arr);
+            Generation loaded = loader.Load(expected);
+            ConsoleWriter Writer = new ConsoleWriter();
+            string savedGen = saver.SerializeGeneration(loaded);
+            Generation loaded2 = loader.Load(savedGen);
 
-            Assert.AreEqual(file, saver.SerializeGeneration(loaded).ToString());
-            //Assert.IsTrue(saver.SerializeGeneration(loaded).Equals(filez));
+            Assert.IsTrue(loaded.Equals(loaded2));
         }
 
         [TestMethod]

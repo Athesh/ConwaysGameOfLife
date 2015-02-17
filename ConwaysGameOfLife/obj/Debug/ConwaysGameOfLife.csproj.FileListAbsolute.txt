@@ -6,3 +6,11 @@ E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOf
 E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.pdb
 E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.MainForm.resources
 E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.csproj.GenerateResource.Cache
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\ConwaysGameOfLife.exe.config
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.exe
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.pdb
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\ConwaysGameOfLife.exe
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\ConwaysGameOfLife.pdb
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.csprojResolveAssemblyReference.cache
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.MainForm.resources
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\ConwaysGameOfLife.csproj.GenerateResource.Cache

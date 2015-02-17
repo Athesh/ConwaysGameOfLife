@@ -5,3 +5,10 @@ E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOf
 E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLifeTests\obj\Debug\ConwaysGameOfLifeTests.csprojResolveAssemblyReference.cache
 E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLifeTests\obj\Debug\ConwaysGameOfLifeTests.dll
 E:\Škola\.NET C# Visual Studio Programming I4.B\ConwaysGameOfLife\ConwaysGameOfLifeTests\obj\Debug\ConwaysGameOfLifeTests.pdb
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLifeTests\bin\Debug\ConwaysGameOfLifeTests.dll
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLifeTests\bin\Debug\ConwaysGameOfLifeTests.pdb
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLifeTests\bin\Debug\ConwaysGameOfLife.exe
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLifeTests\bin\Debug\ConwaysGameOfLife.pdb
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLifeTests\obj\Debug\ConwaysGameOfLifeTests.csprojResolveAssemblyReference.cache
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLifeTests\obj\Debug\ConwaysGameOfLifeTests.dll
+C:\Users\Athesh\Documents\ConwaysGameOfLife\ConwaysGameOfLifeTests\obj\Debug\ConwaysGameOfLifeTests.pdb

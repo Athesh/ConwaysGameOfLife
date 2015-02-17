@@ -11,8 +11,32 @@ namespace ConwaysGameOfLife {
 
         public GenFileSaver() { }
 
-        public char[,] SerializeGeneration(Generation gen) {    //metoda pro zpracování generace do pole charů reprezentující bool hodnoty
-            char[,] arr = new char[gen.Width, gen.Height];
+        public string SerializeGeneration(Generation gen) {    //metoda pro zpracování generace do pole charů reprezentující bool hodnoty
+            StringBuilder MahStringBuilder = new StringBuilder();
+            MahStringBuilder.Append(gen.Width).Append("\n");
+            MahStringBuilder.Append(gen.Height).Append("\n");
+
+            Rules r = new Rules();
+            for (int y = 0; y < gen.Height; y++)
+            {
+                for (int x = 0; x < gen.Width; x++)
+                {
+                    Coordinate coor = new Coordinate(x, y);
+                    bool cell = r.IsInGridAndAlive(coor, gen);
+                    if (cell == false)
+                    {
+                        MahStringBuilder.Append('_');
+                    }
+                    else if (cell == true)
+                    {
+                        MahStringBuilder.Append('X');
+                    }
+                }
+                MahStringBuilder.Append("\n"); //newline
+            }
+            return MahStringBuilder.ToString();
+
+            /* char[,] arr = new char[gen.Width, gen.Height];
             Rules r = new Rules();
             for (int y = 0; y < gen.Height; y++) {
                 for (int x = 0; x < gen.Width; x++) {
@@ -25,21 +49,18 @@ namespace ConwaysGameOfLife {
                         arr[x, y] = 'X';
                     }
                 }
+                 //newline
             }
-            return arr;
+            return arr; */
         }
 
-        public void WriteArrayToFile(char[,] arr, string fileName, Generation gen){ //metoda pro zapsání pole charů do souboru
+        public void WriteArrayToFile(string arr, string fileName, Generation gen){ //metoda pro zapsání pole charů do souboru
             string exeFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             TextWriter tw = new StreamWriter(exeFolder + @"\..\..\Library\" + fileName);
             tw.WriteLine(gen.Width);
             tw.WriteLine(gen.Height);
-            for (int y = 0; y < gen.Height; y++) {
-                for (int x = 0; x < gen.Width; x++) {
-                    tw.Write(arr[x, y]);
-                }
-                tw.WriteLine();
-            }
+            tw.Write(arr);
+
             tw.Close();
         }
 

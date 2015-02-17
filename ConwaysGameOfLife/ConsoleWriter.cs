@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConwaysGameOfLife {
-    class ConsoleWriter {
+    public class ConsoleWriter {
         public void Draw(Generation generation) { //vykreslovaci metoda pro konzolové UI
             for (int row = 0; row < generation.Height; row++) { //radek
                 for (int col = 0; col < generation.Width; col++) {  //sloupec

@@ -15,6 +15,7 @@ namespace ConwaysGameOfLife {
             return exeFolder + @"\..\..\Library\";
             }
 
+        [STAThread]
         static void Main(string[] args) {
             string file = System.IO.File.ReadAllText(GetLibraryDirectory() + @"Testing.txt");
             //bool[,] arr = new bool[,] {{false, true, false},{false, true, false},{false, true, false}};

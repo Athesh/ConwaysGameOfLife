@@ -13,6 +13,8 @@ namespace ConwaysGameOfLife {
         const int timeToSleep = 10;
         bool iftrue = true;
 
+
+
         public GameEngine (Generation g, UserInterface UI) {
             currentGen = g;             //konstruktor GameEnginu s parametry pro předání
             UI_ = UI;                   //stavu pole (a.k.a. generace) + uživatelského rozhraní
@@ -22,6 +24,13 @@ namespace ConwaysGameOfLife {
             get {
                 return currentGen;
             }
+            set {
+                this.currentGen = value;
+            }
+        }
+
+        public void Refresh() {
+            UI_.Update();
         }
 
         private void Animate() {    //metoda pro automatický výpočet dalších generací

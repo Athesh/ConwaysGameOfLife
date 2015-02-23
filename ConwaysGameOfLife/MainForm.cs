@@ -22,6 +22,7 @@ namespace ConwaysGameOfLife {
         }
 
         private const int RIGHT_BUTTON_MARGIN = 100;
+        OpenFileDialog ofd = new OpenFileDialog();
 
         public int MinGridScale() {    //počítání velikosti mřížky podle velikosti formuláře
             Generation gen = engine_.CurrentGen;
@@ -88,6 +89,13 @@ namespace ConwaysGameOfLife {
         }
 
         private void Load_Click(object sender, EventArgs e) {
+            ofd.Filter = "TXT|*.txt";
+            if (ofd.ShowDialog() == DialogResult.OK) {
+                GenFileLoader loader = new GenFileLoader();
+                Generation g = loader.Load(System.IO.File.ReadAllText(ofd.FileName));
+                engine_.CurrentGen = g;
+                engine_.Refresh();
+            }
         }
 
         private void Save_Click(object sender, EventArgs e) {

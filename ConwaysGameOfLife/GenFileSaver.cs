@@ -57,8 +57,6 @@ namespace ConwaysGameOfLife {
         public void WriteArrayToFile(string arr, string fileName, Generation gen){ //metoda pro zapsání pole charů do souboru
             string exeFolder = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             TextWriter tw = new StreamWriter(exeFolder + @"\..\..\Library\" + fileName);
-            tw.WriteLine(gen.Width);
-            tw.WriteLine(gen.Height);
             tw.Write(arr);
 
             tw.Close();

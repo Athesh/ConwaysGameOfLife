@@ -38,6 +38,9 @@ namespace ConwaysGameOfLife {
                     Coordinate coor = new Coordinate (x, y);
                     engine_.InvertAt(coor);
                 }
+                if (command == "load") {
+
+                }
                 if (command == "save") {
                     Console.Write("Path: ");
                     string path = Convert.ToString(Console.ReadLine());

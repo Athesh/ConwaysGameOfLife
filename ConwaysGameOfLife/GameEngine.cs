@@ -10,7 +10,7 @@ namespace ConwaysGameOfLife {
         UserInterface UI_;
         Generation currentGen;
         Rules evolution = new Rules();
-        const int timeToSleep = 10;
+        int timeToSleep;
         bool iftrue = true;
 
 
@@ -18,6 +18,12 @@ namespace ConwaysGameOfLife {
         public GameEngine (Generation g, UserInterface UI) {
             currentGen = g;             //konstruktor GameEnginu s parametry pro předání
             UI_ = UI;                   //stavu pole (a.k.a. generace) + uživatelského rozhraní
+        }
+
+        public int Speed { //property pro nastavení rychlosti
+            set {
+                this.timeToSleep = value;
+            }
         }
 
         public Generation CurrentGen {  //property pro získání současné generace

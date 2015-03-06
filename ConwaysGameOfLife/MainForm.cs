@@ -103,5 +103,10 @@ namespace ConwaysGameOfLife {
             GenFileSaver saver = new GenFileSaver();
             saver.Save(g, "Testing.txt");
         }
+
+        private void speedTrackBar_Scroll(object sender, EventArgs e) {
+            numericSpeed.Text = speedTrackBar.Value.ToString();
+            engine_.Speed = speedTrackBar.Value;
+        }
     }
 }

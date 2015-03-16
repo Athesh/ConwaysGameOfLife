@@ -18,7 +18,12 @@ namespace ConwaysGameOfLife {
         }
 
         public void Update() {
-            form_.Invoke(new RefreshDelegate(Refresh));
+            //Když uživatel zavře aplikaci, tak form_ přestane být platnou referencí na objekt formuláře
+            try {
+                form_.Invoke(new RefreshDelegate(Refresh));
+            }
+            catch (Exception) {
+            }
         }
 
         public void Run(GameEngine engine) {

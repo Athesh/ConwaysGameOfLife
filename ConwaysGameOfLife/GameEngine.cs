@@ -11,9 +11,8 @@ namespace ConwaysGameOfLife {
         Generation currentGen;
         Rules evolution = new Rules();
         int timeToSleep;
-        bool iftrue = true;
-
-
+        bool started = false;
+        long genNumber = 0;
 
         public GameEngine (Generation g, UserInterface UI) {
             currentGen = g;             //konstruktor GameEnginu s parametry pro předání
@@ -26,12 +25,19 @@ namespace ConwaysGameOfLife {
             }
         }
 
+        public long Number {
+            get {
+                return genNumber;
+            }
+        }
+
         public Generation CurrentGen {  //property pro získání současné generace
             get {
                 return currentGen;
             }
             set {
                 this.currentGen = value;
+                genNumber = 0;
             }
         }
 
@@ -40,29 +46,37 @@ namespace ConwaysGameOfLife {
         }
 
         private void Animate() {    //metoda pro automatický výpočet dalších generací
-            while (iftrue) {        //s timeToSleep, což je čas mezi zobrazením
-                Step();             //další vypočítané generace
+            while (started) {        //s timeToSleep, což je čas mezi zobrazením
+                DoStep();             //další vypočítané generace
                 System.Threading.Thread.Sleep(timeToSleep);
             }
         }
 
-        public void Step() {        //metoda pro vypočítáni jedné generace
+        private void DoStep() {
             currentGen = evolution.NextGen(currentGen);
+            genNumber++;
             UI_.Update();
+        }
+        public void Step() {        //metoda pro vypočítáni jedné generace
+            if (!started) {
+                DoStep();
+            }
         }
 
         public void Start() {
-            iftrue = true;
-            var thread = new Thread(Animate);   //vytvoření sekundárního vlákna,
-            thread.IsBackground = true;         //které umožňuje aby mezitím co pracuje, evenloop
-            thread.Start();                     //primárního vlákna příjímal příkazy od uživatele 
+            if (!started) {
+                started = true;
+                var thread = new Thread(Animate);   //vytvoření sekundárního vlákna,
+                thread.IsBackground = true;         //které umožňuje aby mezitím co pracuje, evenloop
+                thread.Start();                     //primárního vlákna příjímal příkazy od uživatele
+            }
         }
 
         public void Stop() {    //zabránění výpočtu dalších generací při spuštění metody Start()
-            iftrue = false;
+            started = false;
         }
 
-        public void InvertAt(Coordinate coor) {
+        public void InvertAt(Coordinate coor) { //Inverze buňky na pozici X, Y
             currentGen.Invert(coor);
             UI_.Update();
         }
